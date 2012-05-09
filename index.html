@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    FoodScouts
+                </h3>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-theme="" data-icon="home" class="ui-btn-active">
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-theme="" data-icon="star">
+                                My Food
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="plus">
+                                Add
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" data-icon="search">
+                                Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div style="">
+                    <img style="width: 288px; height: 151px" src="mockup_assets/310_288px.jpg" />
+                </div>
+                <h3>
+                    Pirkka Suklaa-riisikeksi
+                </h3>
+                <div>
+                    <p>
+                        Description goes here..
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <strong>
+                            Average rating
+                        </strong>
+                        : **** (86 reviews)
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Antti 9.5.2012
+                        <br />
+                        <strong>
+                            Comment goes here
+                        </strong>
+                    </p>
+                    <p>
+                        Antti 9.5.2012
+                        <strong>
+                            <br />
+                        </strong>
+                        <strong>
+                            Comment goes here
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="page2">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    FoodScouts
+                </h3>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-theme="" data-icon="home">
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-theme="" data-icon="star" class="ui-btn-active">
+                                My Food
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="plus">
+                                Add
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" data-icon="search">
+                                Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Bookmarked
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 1
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 2
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 3
+                        </a>
+                    </li>
+                    <li data-role="list-divider" role="heading">
+                        Reviewed
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 4
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 5
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Product 6
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="page3">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    FoodScouts
+                </h3>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-theme="" data-icon="home">
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-theme="" data-icon="star">
+                                My Food
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="plus" class="ui-btn-active">
+                                Add
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" data-icon="search">
+                                Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput1">
+                                Title
+                            </label>
+                            <input id="textinput1" placeholder="" value="" type="text" />
+                        </fieldset>
+                    </div>
+                </form>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textarea1">
+                            Description
+                        </label>
+                        <textarea id="textarea1" placeholder="">
+                        </textarea>
+                    </fieldset>
+                </div>
+                <h4>
+                    Review
+                </h4>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>
+                            Rate
+                        </legend>
+                        <input name="radiobuttons1" id="radio1" value="radio1" type="radio" />
+                        <label for="radio1">
+                            1
+                        </label>
+                        <input name="radiobuttons1" id="radio2" value="radio2" type="radio" />
+                        <label for="radio2">
+                            2
+                        </label>
+                        <input name="radiobuttons1" id="radio3" value="radio3" type="radio" />
+                        <label for="radio3">
+                            3
+                        </label>
+                        <input name="radiobuttons1" id="radio4" value="radio4" type="radio" />
+                        <label for="radio4">
+                            4
+                        </label>
+                        <input name="radiobuttons1" id="radio5" value="radio5" type="radio" />
+                        <label for="radio5">
+                            5
+                        </label>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textarea2">
+                            Comment
+                        </label>
+                        <textarea id="textarea2" placeholder="">
+                        </textarea>
+                    </fieldset>
+                </div>
+                <input type="submit" data-theme="b" data-icon="plus" data-iconpos="left" value="Add discovery" />
+            </div>
+        </div>
+        <div data-role="page" id="page6">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    FoodScouts
+                </h3>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page1" data-theme="" data-icon="home">
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page2" data-theme="" data-icon="star">
+                                My Food
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-theme="" data-icon="plus">
+                                Add
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="" data-icon="search" class="ui-btn-active">
+                                Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput3">
+                            What are you looking for?
+                        </label>
+                        <input id="textinput3" placeholder="" value="" type="search" />
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
