@@ -37,8 +37,10 @@ function showRecommendationDetails(i){
 	// Load comments
 	$.getJSON(apiRoot + "reviews/"+item.pk+"/",function(data){
 		console.log("Loaded reviews",item.pk,data);
+		var sum = 0;
 		$(data).each(function(i,item){
 			var rating = item.fields.rating;
+			sum += rating;
 			var comment = item.fields.comment;
 			var location = item.fields.location;
 			var date = new Date(item.fields.pub_date);
@@ -56,8 +58,27 @@ function showRecommendationDetails(i){
 			html += "<p>"+comment+"</p>";
 			html += "</div>";
 			$("#recommendationComments").append(html)
-			
 		});
+		
+		// Calculate and print average rating
+		var reviewers = data.length;
+		var average;
+		if (reviewers > 0){
+			average = sum/reviewers;
+		} else {
+			average = 0;
+		}
+		var html = "";
+		console.log("average",average)
+		for(i=0;i<5;i++){
+			if(i<average){
+				html += "<div class='star' />";
+			} else {
+				html += "<div class='star grey' />";
+			}
+		}
+		$("#averageStars").html(html);
+		$("#reviewers").html(reviewers)
 	});
 }
 

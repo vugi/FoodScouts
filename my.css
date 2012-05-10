@@ -35,6 +35,7 @@
 	width: 50px;
 	height: 50px;
 	background-image: url(images/bookmark.png);
+	padding-bottom: 5px;
 }
 
 #recommendationStar.selected {
@@ -45,10 +46,35 @@
 	margin-top: 5px;
 }
 
+#recommendationDescription {
+	font-weight: bolder;
+}
+
+#recommendationRating {
+	clear: both;
+}
+
+#recommendationRating > div > div {
+	height: 40px;
+	border: 1px solid #aaa;
+	padding: 5px;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+#recommendationDetails h5 {
+	margin: 15px 0 10px;
+}
+
+#recommendationComments {
+	clear: both;
+	/*margin: 0 -20px;*/
+	border-bottom: 1px solid #aaa;
+}
+
 #recommendationComments .comment {
 	border-top: 1px solid #aaa;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding: 10px 0px;
 }
 
 #recommendationComments .comment span {
