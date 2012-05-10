@@ -25,11 +25,12 @@
 					'			<ul class="rightList active"></ul>'+
 					'		</div>'+
 					'	</div>'+
-					'	<p></p>'+
+					'	<h3 id="title"></h3>'+
+					' <p id="description"></p>' +
 					'</div>',
                 ITEM_DOM = '<li><div/></li>',
                 container = $(elem),
-                reference, previousItems, nextItems, info, infoWidth, initialPos;
+                reference, previousItems, nextItems, title, description, infoWidth, initialPos;
 
             /**
              * @name onSlideDisplayed
@@ -59,7 +60,9 @@
 
                 currentSlide.unbind('webkitTransitionEnd').bind('webkitTransitionEnd', onSlideDisplayed);
                 reference.css('-webkit-transform', 'translate3d(' + pos + 'px,0px,0px)');
-                info.text(currentSlide.find('img').attr('alt'));
+								var img = currentSlide.find('img');
+                title.text(img.attr('alt'));
+								description.text(img.data('description'));
             }
 
             /**
@@ -98,15 +101,16 @@
                 reference = componentDOM.find('div.content');
                 previousItems = componentDOM.find('.leftList');
                 nextItems = componentDOM.find('.rightList');
-                info = componentDOM.find('p');
+                title = componentDOM.find('h3');
+								description = componentDOM.find('#description');
 
                 container.find('img').each(function(index, image) {
                     nextItems.prepend(itemDOM.clone(false).children('div').html(image).end());
                 });
 
                 container.html(componentDOM);
-                infoWidth = info.width();
-                initialPos = Math.abs(info.position().left - (container.children('div').position().left));
+                infoWidth = title.width();
+                initialPos = Math.abs(title.position().left - (container.children('div').position().left));
             }
 
             /**
