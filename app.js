@@ -29,6 +29,8 @@ $(document).ready(function(){
 	// Attach event handlers
 	$("#nextRecommendation").click(showRandomRecommendation);
 	
+	// Initialize the coverflow
+	$('#coverflow').coverFlow();
 })
 
 $( document ).delegate("#explorePage", "pageshow", function() {
