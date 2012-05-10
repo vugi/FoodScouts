@@ -5,10 +5,33 @@
   text-align: right;
 }
 
+/* Explore-page */
+
 #explorePage div[data-role=content] {
 	padding: 0;
-	
 }
+
+#recommendationDetails {
+	padding: 20px;
+	margin-top: -50px;
+}
+
+#recommendationStar {
+	float: right;
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-image: url(images/bookmark.png);
+}
+
+#recommendationStar.selected {
+	background-position: -50px;
+}
+
+#recommendationTitle {
+	margin-top: 5px;
+}
+
 
 /* Coverflow content */
 

@@ -25,12 +25,11 @@
 					'			<ul class="rightList active"></ul>'+
 					'		</div>'+
 					'	</div>'+
-					'	<h3 id="title"></h3>'+
-					' <p id="description"></p>' +
+					'	<p></p>'+
 					'</div>',
                 ITEM_DOM = '<li><div/></li>',
                 container = $(elem),
-                reference, previousItems, nextItems, title, description, infoWidth, initialPos;
+                reference, previousItems, nextItems, title, infoWidth, initialPos;
 
             /**
              * @name onSlideDisplayed
@@ -55,14 +54,14 @@
              */
 
             function setAfterSlide(currentSlide) {
-                var itemWidth = currentSlide.outerWidth(true),
-                    pos = initialPos + ((infoWidth - itemWidth) / 2) + MARGIN_DELTA - previousItems.width() + (itemWidth * (currentSlide.parent()[0] === previousItems[0] ? 1 : 0));
+                var itemWidth = currentSlide.outerWidth(true);
+								var pos = initialPos + ((infoWidth - itemWidth) / 2) + MARGIN_DELTA - previousItems.width() + (itemWidth * (currentSlide.parent()[0] === previousItems[0] ? 1 : 0));
 
                 currentSlide.unbind('webkitTransitionEnd').bind('webkitTransitionEnd', onSlideDisplayed);
                 reference.css('-webkit-transform', 'translate3d(' + pos + 'px,0px,0px)');
 								var img = currentSlide.find('img');
-                title.text(img.attr('alt'));
-								description.text(img.data('description'));
+                //title.text(img.attr('alt'));
+								showRecommendationDetails(img.data("i"));
             }
 
             /**
@@ -101,8 +100,7 @@
                 reference = componentDOM.find('div.content');
                 previousItems = componentDOM.find('.leftList');
                 nextItems = componentDOM.find('.rightList');
-                title = componentDOM.find('h3');
-								description = componentDOM.find('#description');
+                title = componentDOM.find('p');
 
                 container.find('img').each(function(index, image) {
                     nextItems.prepend(itemDOM.clone(false).children('div').html(image).end());
@@ -110,7 +108,8 @@
 
                 container.html(componentDOM);
                 infoWidth = title.width();
-                initialPos = Math.abs(title.position().left - (container.children('div').position().left));
+                //initialPos = Math.abs(title.position().left - (container.children('div').position().left));
+								initialPos = 0;
             }
 
             /**

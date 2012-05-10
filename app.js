@@ -1,5 +1,6 @@
 var apiRoot = "http://foodscouts.dy.fi/";
 var userID = 1;
+var recommendationsData = [];
 
 $(document).ready(function(){
 	console.log('document ready');
@@ -13,15 +14,23 @@ $( document ).delegate("#explorePage", "pageinit", function() {
 	
 	$.getJSON(apiRoot+"recommendations/",function(data){
 		console.log("Loaded recommendations:",data);
+		recommendationsData = data;
 		$(data).each(function(i,item){
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#coverflow").append("<img src='mockup_assets/"+item.pk+".jpg' alt='"+name+"' data-description='"+description+"'/>");
+			$("#coverflow").append("<img src='mockup_assets/"+item.pk+".jpg' data-i='"+i+"'/>");
 		});
 		
 		$('#coverflow').coverFlow();
 	});
 });
+
+function showRecommendationDetails(i){
+	console.log("showRecommendationDetails",i)
+	var item = recommendationsData[i];
+	$("#recommendationTitle").text(item.fields.name);
+	$("#recommendationDescription").text(item.fields.description);
+}
 
 $( document ).delegate("#myFoodPage", "pageinit", function() {
 	console.log('myFoodPage pageinit');
