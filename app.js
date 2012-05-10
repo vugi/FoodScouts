@@ -22,6 +22,8 @@ $( document ).delegate("#explorePage", "pageinit", function() {
 		});
 		
 		$('#coverflow').coverFlow();
+		$('#recommendationDetails').show();
+		$('#recommendationsLoading').hide();
 	});
 });
 
