@@ -30,6 +30,35 @@ function showRecommendationDetails(i){
 	var item = recommendationsData[i];
 	$("#recommendationTitle").text(item.fields.name);
 	$("#recommendationDescription").text(item.fields.description);
+	
+	// Clear old comments
+	$("#recommendationComments").html("");
+	
+	// Load comments
+	$.getJSON(apiRoot + "reviews/"+item.pk+"/",function(data){
+		console.log("Loaded reviews",item.pk,data);
+		$(data).each(function(i,item){
+			var rating = item.fields.rating;
+			var comment = item.fields.comment;
+			var location = item.fields.location;
+			var date = new Date(item.fields.pub_date);
+			var user = item.fields.user.fields.username;
+			
+			var html = "<div class='comment'>";
+			for(i=0;i<5;i++){
+				if(i<rating){
+					html += "<div class='star' />";
+				} else {
+					html += "<div class='star grey' />";
+				}
+			}
+			html += "<span class='user'>"+user + "</span> <span class='date'>" + $.timeago(date) +"</span>";
+			html += "<p>"+comment+"</p>";
+			html += "</div>";
+			$("#recommendationComments").append(html)
+			
+		});
+	});
 }
 
 $( document ).delegate("#myFoodPage", "pageinit", function() {

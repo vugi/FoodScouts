@@ -5,6 +5,19 @@
   text-align: right;
 }
 
+/* Review star */
+
+.star {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url(images/stars_20.png);
+}
+
+.star.grey {
+	background-position: -80px;
+}
+
 /* Explore-page */
 
 #explorePage div[data-role=content] {
@@ -32,6 +45,25 @@
 	margin-top: 5px;
 }
 
+#recommendationComments .comment {
+	border-top: 1px solid #aaa;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#recommendationComments .comment span {
+	font-size: 0.9em;
+	color: gray;
+	margin-left: 5px;
+}
+
+span.user {
+	font-weight: bold;
+}
+
+#recommendationComments .comment p {
+	margin: 5px 0 0 0;
+}
 
 /* Coverflow content */
 
