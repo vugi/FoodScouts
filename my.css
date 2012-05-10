@@ -91,10 +91,23 @@ span.user {
 	margin: 5px 0 0 0;
 }
 
-/* Coverflow content */
+/* My Food -page */
 
-.coverFlow > h3{
-	padding-top: 20px;
+#bookmarkedList {
+	margin-bottom: 0;
+}
+
+#reviewedList {
+	margin-top: 0;
+}
+
+/* Coverflow plugin */
+
+.coverFlow {
+	background:transparent;
+	padding:50px 0;
+	text-align:center;
+	overflow:hidden;
 }
 
 .coverFlow > p{
@@ -105,15 +118,6 @@ span.user {
 	margin:10px auto 0 auto;
 	width:100%;
 	z-index:10;
-}
-
-/* Coverflow plugin */
-
-.coverFlow {
-	background:transparent;
-	padding:50px 0;
-	text-align:center;
-	overflow:hidden;
 }
 
 .coverFlow div.content.loading{
