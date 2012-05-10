@@ -12,7 +12,7 @@ $(document).ready(function(){
 $( document ).delegate("#explorePage", "pageinit", function() {
 	console.log('explorePage pageinit');
 	
-	$.getJSON(apiRoot+"recommendations/",function(data){
+	$.getJSON(apiRoot+"my_recommendations/"+userID+"/",function(data){
 		console.log("Loaded recommendations:",data);
 		recommendationsData = data;
 		$(data).each(function(i,item){
