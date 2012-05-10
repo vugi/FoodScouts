@@ -10,14 +10,26 @@
         <style>
             /* App custom styles */
         </style>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-        </script>
-        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
-        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+				<script type="text/javascript">
+				/*<![CDATA[*/
+				$(document).bind("mobileinit", function(){
+					console.log("mobileinit");
+					
+					// Override JQuery Mobile default settings
+					$.extend(  $.mobile , {
+						// turn off animated transitions
+						defaultPageTransition : 'none',
+						defaultDialogTransition : 'none'
+					});
+				});
+				/*]]>*/
+				</script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     </head>
     <body>
         <div data-role="page" id="page1">
-            <div data-theme="a" data-role="header" data-id="persistent" data-position="fixed">
+            <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
                 </h3>
@@ -87,7 +99,7 @@
             </div>
         </div>
         <div data-role="page" id="page2">
-            <div data-theme="a" data-role="header" data-id="persistent" data-position="fixed">
+            <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
                 </h3>
@@ -105,7 +117,7 @@
                         </li>
                         <li>
                             <a href="#page3" data-theme="" data-icon="plus">
-                                Add
+                                Add discovery
                             </a>
                         </li>
                         <li>
@@ -158,7 +170,7 @@
             </div>
         </div>
         <div data-role="page" id="page3">
-            <div data-theme="a" data-role="header" data-id="persistent" data-position="fixed">
+            <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
                 </h3>
@@ -176,7 +188,7 @@
                         </li>
                         <li>
                             <a href="#page3" data-theme="" data-icon="plus" class="ui-btn-active">
-                                Add
+                                Add discovery
                             </a>
                         </li>
                         <li>
@@ -250,7 +262,7 @@
             </div>
         </div>
         <div data-role="page" id="page6">
-            <div data-theme="a" data-role="header" data-id="persistent" data-position="fixed">
+            <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
                 </h3>
@@ -268,7 +280,7 @@
                         </li>
                         <li>
                             <a href="#page3" data-theme="" data-icon="plus">
-                                Add
+                                Add discovery
                             </a>
                         </li>
                         <li>
