@@ -1,4 +1,4 @@
-var apiUrl = "http://foodscouts.dy.fi/";
+var apiUrl = "http://foodscouts.dy.fi/recommendations/";
 var itemData = [];
 
 $(document).ready(function(){
@@ -14,14 +14,14 @@ $(document).ready(function(){
 		$(data).each(function(i,item){
 			var name = item.fields.name;
 			var description = item.fields.description;
-			//$("#exploreList").append("<li><h4>"+name+"</h4><p>"+description+"</p></li>");
+			$("#coverflow").append("<img src='mockup_assets/"+(item.pk-1)+".jpg' alt='"+name+"' />");
 			$("#searchList").append("<li><h4>"+name+"</h4><p>"+description+"</p></li>");
 		});
 		
 		if(activePageId=="searchPage"){
 			$("#searchList").listview('refresh');
 		} else if (activePageId = "explorePage") {
-			//$("#exploreList").listview('refresh');
+			$('#coverflow').coverFlow();
 			showRandomRecommendation();
 		}
 	});
@@ -30,7 +30,7 @@ $(document).ready(function(){
 	$("#nextRecommendation").click(showRandomRecommendation);
 	
 	// Initialize the coverflow
-	$('#coverflow').coverFlow();
+	
 })
 
 $( document ).delegate("#explorePage", "pageshow", function() {
