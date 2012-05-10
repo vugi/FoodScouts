@@ -124,7 +124,7 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 			var id = item.pk;
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#searchList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></li>");
+			$("#searchList").append("<li><a href='#detailPage'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
 		});
 		
 		$("#searchList").listview('refresh');
