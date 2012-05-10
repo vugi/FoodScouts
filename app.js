@@ -60,9 +60,10 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 	$.getJSON(apiRoot,function(data){
 		console.log("Loaded search items:",data);
 		$(data).each(function(i,item){
+			var id = item.pk;
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#searchList").append("<li><h4>"+name+"</h4><p>"+description+"</p></li>");
+			$("#searchList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></li>");
 		});
 		
 		$("#searchList").listview('refresh');
