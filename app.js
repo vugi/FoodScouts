@@ -14,7 +14,7 @@ $(document).ready(function(){
 		$(data).each(function(i,item){
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#coverflow").append("<img src='mockup_assets/"+(item.pk-1)+".jpg' alt='"+name+"' data-description='"+description+"'/>");
+			$("#coverflow").append("<img src='mockup_assets/"+item.pk+".jpg' alt='"+name+"' data-description='"+description+"'/>");
 			$("#searchList").append("<li><h4>"+name+"</h4><p>"+description+"</p></li>");
 		});
 		
