@@ -25,7 +25,7 @@
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     </head>
     <body>
-        <div data-role="page" id="page1">
+        <div data-role="page" id="explorePage">
             <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
@@ -33,22 +33,22 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="home" class="ui-btn-active">
+                            <a href="#explorePage" data-theme="" data-icon="home" class="ui-btn-active">
                                 Explore
                             </a>
                         </li>
                         <li>
-                            <a href="#page2" data-theme="" data-icon="star">
+                            <a href="#myFoodPage" data-theme="" data-icon="star">
                                 My Food
                             </a>
                         </li>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="plus">
+                            <a href="#addDiscoveryPage" data-theme="" data-icon="plus">
                                 Add discovery
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" data-icon="search">
+                            <a href="#searchPage" data-theme="" data-icon="search">
                                 Search
                             </a>
                         </li>
@@ -56,8 +56,19 @@
                 </div>
             </div>
             <div data-role="content">
-								<ul id="exploreList" data-role="listview">
-								</ul>
+							<div id="coverflow">
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 1" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 2" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 3" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 4" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 5" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 6" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 7" />
+								<img src="mockup_assets/kauraleipa.jpg" alt="kauraleipa 8" />
+							</div>
+								<ul id="exploreList" data-role="listview" style="display:none"></ul>
+								<div id="exploreItem"></div>
+								<button id="nextRecommendation">Next recommendation</button>
 								<!--
                 <div style="">
                     <img style="width: 288px; height: 151px" src="mockup_assets/310_288px.jpg" />
@@ -100,7 +111,7 @@
 								
             </div>
         </div>
-        <div data-role="page" id="page2">
+        <div data-role="page" id="myFoodPage">
             <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
@@ -108,22 +119,22 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="home">
+                            <a href="#explorePage" data-theme="" data-icon="home">
                                 Explore
                             </a>
                         </li>
                         <li>
-                            <a href="#page2" data-theme="" data-icon="star" class="ui-btn-active">
+                            <a href="#myFoodPage" data-theme="" data-icon="star" class="ui-btn-active">
                                 My Food
                             </a>
                         </li>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="plus">
-                                Add Discovery
+                            <a href="#addDiscoveryPage" data-theme="" data-icon="plus">
+                                Add discovery
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" data-icon="search">
+                            <a href="#searchPage" data-theme="" data-icon="search">
                                 Search
                             </a>
                         </li>
@@ -136,17 +147,17 @@
                         Bookmarked
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 1
                         </a>
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 2
                         </a>
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 3
                         </a>
                     </li>
@@ -154,24 +165,24 @@
                         Reviewed
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 4
                         </a>
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 5
                         </a>
                     </li>
                     <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
+                        <a href="#explorePage" data-transition="slide">
                             Product 6
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div data-role="page" id="page3">
+        <div data-role="page" id="addDiscoveryPage">
             <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
@@ -179,22 +190,22 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="home">
+                            <a href="#explorePage" data-theme="" data-icon="home">
                                 Explore
                             </a>
                         </li>
                         <li>
-                            <a href="#page2" data-theme="" data-icon="star">
+                            <a href="#myFoodPage" data-theme="" data-icon="star">
                                 My Food
                             </a>
                         </li>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="plus" class="ui-btn-active">
-                                Add Discovery
+                            <a href="#addDiscoveryPage" data-theme="" data-icon="plus" class="ui-btn-active">
+                                Add discovery
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" data-icon="search">
+                            <a href="#searchPage" data-theme="" data-icon="search">
                                 Search
                             </a>
                         </li>
@@ -263,7 +274,7 @@
                 <input type="submit" data-theme="b" data-icon="plus" data-iconpos="left" value="Add discovery" />
             </div>
         </div>
-        <div data-role="page" id="page6">
+        <div data-role="page" id="searchPage">
             <div data-theme="a" data-role="header">
                 <h3>
                     FoodScouts
@@ -271,22 +282,22 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="home">
+                            <a href="#explorePage" data-theme="" data-icon="home">
                                 Explore
                             </a>
                         </li>
                         <li>
-                            <a href="#page2" data-theme="" data-icon="star">
+                            <a href="#myFoodPage" data-theme="" data-icon="star">
                                 My Food
                             </a>
                         </li>
                         <li>
-                            <a href="#page3" data-theme="" data-icon="plus">
-                                Add Discovery
+                            <a href="#addDiscoveryPage" data-theme="" data-icon="plus">
+                                Add discovery
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="" data-icon="search" class="ui-btn-active">
+                            <a href="#searchPage" data-theme="" data-icon="search" class="ui-btn-active">
                                 Search
                             </a>
                         </li>
@@ -294,16 +305,10 @@
                 </div>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="textinput3">
-                            What are you looking for?
-                        </label>
-                        <input id="textinput3" placeholder="" value="" type="search" />
-                    </fieldset>
-                </div>
+                <ul id="searchList" data-role="listview" data-filter="true"></ul>
             </div>
         </div>
+				<script src="js/coverflow.plugin.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
