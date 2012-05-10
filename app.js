@@ -1,4 +1,5 @@
 var apiRoot = "http://foodscouts.dy.fi/";
+var userID = 1;
 
 $(document).ready(function(){
 	console.log('document ready');
@@ -19,6 +20,37 @@ $( document ).delegate("#explorePage", "pageinit", function() {
 		});
 		
 		$('#coverflow').coverFlow();
+	});
+});
+
+$( document ).delegate("#myFoodPage", "pageinit", function() {
+	console.log('myFoodPage pageinit');
+	
+	// Load bookmarks
+	$.getJSON(apiRoot + "my_bookmarks/"+userID+"/",function(data){
+		console.log("Loaded my bookmarks:",data);
+		$(data).each(function(i,item){
+			var id = item.fields.item.pk;
+			var name = item.fields.item.fields.name;
+			var description = item.fields.item.fields.description;
+			$("#bookmarkedList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></li>");
+		});
+		
+		$("#bookmarkedList").listview('refresh');
+	});
+	// Load reviews
+	$.getJSON(apiRoot + "my_reviews/"+userID+"/",function(data){
+		console.log("Loaded my reviews:",data);
+		$(data).each(function(i,item){
+			var id = item.fields.item.pk;
+			var name = item.fields.item.fields.name;
+			var description = item.fields.item.fields.description;
+			var comment = item.fields.comment;
+			var location = item.fields.location;
+			$("#reviewedList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>Sighted at: "+location+"</p><p>Your comment: "+comment+"</p></li>");
+		});
+		
+		$("#reviewedList").listview('refresh');
 	});
 });
 
