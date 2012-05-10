@@ -10,6 +10,22 @@
 	
 }
 
+/* Coverflow content */
+
+.coverFlow > h3{
+	padding-top: 20px;
+}
+
+.coverFlow > p{
+	clear: both;
+	color: black;
+	font-size:14px;
+	font-weight:bold;
+	margin:10px auto 0 auto;
+	width:100%;
+	z-index:10;
+}
+
 /* Coverflow plugin */
 
 .coverFlow {
@@ -40,18 +56,6 @@
 
 .coverFlow > div > div{
 	-webkit-transition: all 300ms ease-out;
-}
-
-.coverFlow > p{
-	clear: both;
-	color: black;
-	font-family: "Lucida Grande", sans-serif;
-	font-size:14px;
-	font-weight:bold;
-	margin:25px auto 0 auto;
-	/*text-shadow: 1px 1px 2px #fff;*/
-	width:100%;
-	z-index:10;
 }
 
 .coverFlow > div > div > ul{
