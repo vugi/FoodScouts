@@ -1,16 +1,29 @@
-div[data-role="navbar"] .ui-btn .ui-btn-inner { padding-top: 60px !important; }
-div[data-role="navbar"] .ui-btn .ui-icon { width: 50px!important; height: 50px!important; margin-left: -25px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+/* Navbar */
+
+div[data-role="navbar"] .ui-btn .ui-btn-inner { 
+	padding-top: 50px !important;
+}
+div[data-role="navbar"] .ui-btn .ui-icon { 
+	width: 40px!important; 
+	height: 40px!important; 
+	margin-left: -20px !important; 
+	box-shadow: none!important; 
+	-moz-box-shadow: none!important; 
+	-webkit-box-shadow: none!important; 
+	-webkit-border-radius: 0 !important; 
+	border-radius: 0 !important;
+}
 div[data-role="navbar"] .ui-icon {
 	background:  url(images/nav_icons_sprite.png) no-repeat;
 } 
 a[href="#myFoodPage"] .ui-icon {
-	background-position: -50px;
+	background-position: -40px;
 }
 a[href="#addDiscoveryPage"] .ui-icon {
-	background-position: -100px;
+	background-position: -80px;
 }
 a[href="#searchPage"] .ui-icon {
-	background-position: -150px;
+	background-position: -120px;
 }
 
 /* Review star */
