@@ -1,9 +1,10 @@
 var apiRoot = "http://foodscouts.dy.fi/";
-var userID = 6;
+var userID = 7;
 var recommendationsData = [];
 var searchData = [];
 var bookmarksData = [];
 var reviewsData = [];
+var currentDetailItem = null;
 
 $(document).ready(function(){
 	console.log('document ready');
@@ -16,6 +17,10 @@ $(document).ready(function(){
 	});
 	
 	initRatingStars();
+	
+	$(".bookmarkStar").click(function(e){
+		addBookmark();
+	});
 })
 
 $( document ).delegate("#explorePage", "pageinit", function() {
@@ -42,6 +47,8 @@ function showRecommendationDetails(i){
 
 function showDetails(item,$element){
 	console.log("showDetails",item,$element)
+	
+	currentDetailItem = item;
 	
 	$element.find(".title").text(item.fields.name);
 	$element.find(".description").text(item.fields.description);
@@ -187,4 +194,32 @@ function initRatingStars(){
 		// Mark the ones before this selected as well
 		$target.prevUntil().addClass("selected");
 	});
+}
+
+function addBookmark(){
+	console.log(currentDetailItem);
+	var bookMarkItem = {
+		fields: {
+			item: currentDetailItem
+		}
+	};
+	//bookMarkItem.fields.item = currentDetailItem;
+	bookmarksData.push(bookMarkItem);
+	
+	console.log(bookMarkItem);
+	//bookmarksData
+	updateBookmarks();
+}
+
+function updateBookmarks(){
+	$("#bookmarkedList").empty();
+	
+	$(bookmarksData).each(function(i,item){
+		var id = item.fields.item.pk;
+		var name = item.fields.item.fields.name;
+		var description = item.fields.item.fields.description;
+		$("#bookmarkedList").append("<li><a href='#detailPage?type=bookmark&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
+	});
+	
+	$("#bookmarkedList").listview('refresh');
 }
