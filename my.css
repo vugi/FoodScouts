@@ -93,11 +93,22 @@ a[href="#searchPage"] .ui-icon {
 }
 
 .details .rating > div > div {
-	height: 40px;
 	border: 1px solid #aaa;
 	padding: 5px;
 	text-align: center;
+	background-color: white;
+}
+
+.details .average {
 	font-size: 0.8em;
+	height: 40px;
+}
+
+.details div.review {
+	padding-top: 15px !important;
+	height: 30px;
+	font-size: 1em;
+	font-weight: bold;
 }
 
 .details h5 {
