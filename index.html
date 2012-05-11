@@ -244,34 +244,26 @@
             </div>
         </div>
 				<div data-role="page" id="detailPage">
-            <div data-theme="a" data-role="header">
-                <div data-role="navbar" data-iconpos="top">
-                    <ul>
-                        <li>
-                            <a href="#explorePage" data-theme="" data-icon="custom">
-                                Explore
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#myFoodPage" data-theme="" data-icon="custom">
-                                My Food
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#addDiscoveryPage" data-theme="" data-icon="custom">
-                                Add
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#searchPage" data-theme="" data-icon="custom">
-                                Search
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+					  <div data-role="header" data-theme="d">
+								<h1>Details</h1>
+							</div>
             <div data-role="content">
-                DetailPage
+                <div id="itemDetails" class="details">
+									<div class="bookmarkStar"></div>
+                	<h3 class="title"></h3>
+                	
+									<div class="rating ui-grid-a">
+										<div class="ui-block-a">
+												<div class="average">
+													Average (<span class="reviewers"></span> reviews)<br/>
+													<div class="averageStars"></div>
+											</div>
+										</div>
+										<div class="ui-block-b"><div class="review">Review this</div></div>
+									</div>
+									<p class="description"></p>
+									<div class="comments"></div>
+								</div>
             </div>
         </div>
 				<script src="js/coverflow.plugin.js"></script>

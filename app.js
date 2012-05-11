@@ -1,6 +1,7 @@
 var apiRoot = "http://foodscouts.dy.fi/";
 var userID = 1;
 var recommendationsData = [];
+var searchData = [];
 
 $(document).ready(function(){
 	console.log('document ready');
@@ -124,13 +125,21 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 	
 	$.getJSON(apiRoot,function(data){
 		console.log("Loaded search items:",data);
+		searchData = data;
 		$(data).each(function(i,item){
 			var id = item.pk;
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#searchList").append("<li><a href='#detailPage'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
+			$("#searchList").append("<li><a href='#detailPage?i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
 		});
 		
 		$("#searchList").listview('refresh');
 	});	
+});
+
+$( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
+	console.log('detailPage pagebeforeshow',e,data);
+	var itemI = $(e.target).attr("data-url").replace(/.*i=/, "");
+	console.log(itemI);
+	showDetails(searchData[itemI],$("#itemDetails"));
 });
