@@ -140,6 +140,7 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 	console.log('detailPage pagebeforeshow',e,data);
 	var itemI = $(e.target).attr("data-url").replace(/.*i=/, "");
-	console.log(itemI);
-	showDetails(searchData[itemI],$("#itemDetails"));
+	var item = searchData[itemI];
+	$("#itemDetailImg").attr("src","mockup_assets/"+item.pk+".jpg");
+	showDetails(item,$("#itemDetails"));
 });
