@@ -56,7 +56,7 @@ function showDetails(item,$element){
 			sum += rating;
 			var comment = item.fields.comment;
 			var location = item.fields.location;
-			var date = new Date(item.fields.pub_date);
+			var date = item.fields.pub_date;
 			var user = item.fields.user.fields.username;
 			
 			var html = "<div class='comment'>";
