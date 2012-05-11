@@ -1,5 +1,5 @@
 var apiRoot = "http://foodscouts.dy.fi/";
-var userID = 1;
+var userID = 6;
 var recommendationsData = [];
 var searchData = [];
 var bookmarksData = [];
@@ -166,6 +166,7 @@ $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 	$("#itemDetailImg").attr("src","mockup_assets/"+item.pk+".jpg");
 	showDetails(item,$("#itemDetails"));
 });
+
 $( document ).delegate("#ratingPage", "pageinit", function() {
 	console.log('ratingPage pageinit');
 	
