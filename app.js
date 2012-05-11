@@ -117,7 +117,7 @@ $( document ).delegate("#myFoodPage", "pageinit", function() {
 			var description = item.fields.item.fields.description;
 			var comment = item.fields.comment;
 			var location = item.fields.location;
-			$("#reviewedList").append("<li><a href='#detailPage?type=reviews&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>Sighted at: "+location+"</p><p>Your comment: "+comment+"</p></li>");
+			$("#reviewedList").append("<li><a href='#detailPage?type=reviews&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p><i>Sighted at: "+location+"</i></p><p>Your comment: "+comment+"</p></li>");
 		});
 		
 		$("#reviewedList").listview('refresh');
