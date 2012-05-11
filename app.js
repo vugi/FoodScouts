@@ -204,7 +204,7 @@ function addBookmark(){
 		}
 	};
 	//bookMarkItem.fields.item = currentDetailItem;
-	bookmarksData.push(bookMarkItem);
+	bookmarksData.splice(0,0,bookMarkItem);
 	
 	console.log(bookMarkItem);
 	//bookmarksData
