@@ -10,6 +10,10 @@ $(document).ready(function(){
 	
 	var activePageId = $.mobile.activePage.prop("id");
 	console.log("activePageId: "+activePageId);
+	
+	$(".review").click(function(){
+		$.mobile.changePage("#ratingPage", {role: 'dialog'});
+	});
 })
 
 $( document ).delegate("#explorePage", "pageinit", function() {
@@ -161,4 +165,21 @@ $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 	
 	$("#itemDetailImg").attr("src","mockup_assets/"+item.pk+".jpg");
 	showDetails(item,$("#itemDetails"));
+});
+$( document ).delegate("#ratingPage", "pageinit", function() {
+	console.log('ratingPage pageinit');
+	
+	$(".ratingStars .star").click(function(e){
+		var $target = $(e.target);
+		
+		// Remove old rating status
+		$(".ratingStars .star").removeClass("selected");
+	
+		// Mark this one as selected
+		$target.addClass("selected");
+		
+		// Mark the ones before this selected as well
+		$target.prevUntil().addClass("selected");
+	});
+	
 });
