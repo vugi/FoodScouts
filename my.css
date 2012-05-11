@@ -48,18 +48,17 @@ a[href="#searchPage"] .ui-icon {
 
 #recommendationDetails {
 	display:none;
+	padding: 20px;
+	margin-top: -50px;
 }
 
 #explorePage div[data-role=content] {
 	padding: 0;
 }
 
-#recommendationDetails {
-	padding: 20px;
-	margin-top: -50px;
-}
+/* Details */
 
-#recommendationStar {
+.bookmarkStar {
 	float: right;
 	display: block;
 	width: 50px;
@@ -68,23 +67,24 @@ a[href="#searchPage"] .ui-icon {
 	margin-bottom: 5px;
 }
 
-#recommendationStar.selected {
+.bookmarkStar.selected {
 	background-position: -50px;
 }
 
-#recommendationTitle {
+.details .title {
 	margin-top: 5px;
 }
 
-#recommendationDescription {
+.details .description {
 	font-weight: bolder;
-}
-
-#recommendationRating {
 	clear: both;
 }
 
-#recommendationRating > div > div {
+.details .rating {
+	clear: both;
+}
+
+.details .rating > div > div {
 	height: 40px;
 	border: 1px solid #aaa;
 	padding: 5px;
@@ -92,32 +92,32 @@ a[href="#searchPage"] .ui-icon {
 	font-size: 0.8em;
 }
 
-#recommendationDetails h5 {
+.details h5 {
 	margin: 15px 0 10px;
 }
 
-#recommendationComments {
+.details .comments {
 	clear: both;
 	/*margin: 0 -20px;*/
 	border-bottom: 1px solid #aaa;
 }
 
-#recommendationComments .comment {
+.details .comments .comment {
 	border-top: 1px solid #aaa;
 	padding: 10px 0px;
 }
 
-#recommendationComments .comment span {
+.details .comments .comment span {
 	font-size: 0.9em;
 	color: gray;
 	margin-left: 5px;
 }
 
-span.user {
+.details span.user {
 	font-weight: bold;
 }
 
-#recommendationComments .comment p {
+.details .comment p {
 	margin: 5px 0 0 0;
 }
 

@@ -28,13 +28,17 @@ $( document ).delegate("#explorePage", "pageinit", function() {
 });
 
 function showRecommendationDetails(i){
-	console.log("showRecommendationDetails",i)
-	var item = recommendationsData[i];
-	$("#recommendationTitle").text(item.fields.name);
-	$("#recommendationDescription").text(item.fields.description);
+	showDetails(recommendationsData[i],$("#recommendationDetails"));
+}
+
+function showDetails(item,$element){
+	console.log("showDetails",item,$element)
+	
+	$element.find(".title").text(item.fields.name);
+	$element.find(".description").text(item.fields.description);
 	
 	// Clear old comments
-	$("#recommendationComments").html("");
+	$element.find(".comments").html("");
 	
 	// Load comments
 	$.getJSON(apiRoot + "reviews/"+item.pk+"/",function(data){
@@ -59,7 +63,7 @@ function showRecommendationDetails(i){
 			html += "<span class='user'>"+user + "</span> <span class='date'>" + $.timeago(date) +"</span>";
 			html += "<p>"+comment+"</p>";
 			html += "</div>";
-			$("#recommendationComments").append(html)
+			$element.find(".comments").append(html)
 		});
 		
 		// Calculate and print average rating
@@ -79,8 +83,8 @@ function showRecommendationDetails(i){
 				html += "<div class='star grey' />";
 			}
 		}
-		$("#averageStars").html(html);
-		$("#reviewers").html(reviewers)
+		$element.find(".averageStars").html(html);
+		$element.find(".reviewers").html(reviewers);
 	});
 }
 
