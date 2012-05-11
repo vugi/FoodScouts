@@ -61,32 +61,23 @@ a[href="#searchPage"] .ui-icon {
 .bookmarkStar {
 	float: right;
 	display: block;
-/*	width: 50px;
-	height: 50px;
-	background-image: url(images/bookmark.png);
-	margin-bottom: 5px;
-*/
 }
 
-.ui-icon-rec-star {
+.bookmarkStar .ui-icon-rec-star {
 	background-image: url(images/bookmark.png);
-    background-size: 36px;
+  background-size: 36px;
 	background-position: 0px !important;
-
+	background-color: transparent !important;
+	box-shadow: none!important; 
+	-moz-box-shadow: none!important; 
+	-webkit-box-shadow: none!important; 
+	-webkit-border-radius: 0 !important; 
+	border-radius: 0 !important;
 }
 
-.ui-icon-rec-star.selected {
-	background-image: url(images/bookmark.png);
-    background-size: 36px;
+.bookmarkStar.selected .ui-icon-rec-star {
 	background-position: -18px !important;
-
 }
-
-/*
-.bookmarkStar.selected {
-	background-position: -50px;
-}
-*/
 
 .details .title {
 	margin-top: 5px;
