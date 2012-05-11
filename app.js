@@ -2,6 +2,8 @@ var apiRoot = "http://foodscouts.dy.fi/";
 var userID = 1;
 var recommendationsData = [];
 var searchData = [];
+var bookmarksData = [];
+var reviewsData = [];
 
 $(document).ready(function(){
 	console.log('document ready');
@@ -95,11 +97,12 @@ $( document ).delegate("#myFoodPage", "pageinit", function() {
 	// Load bookmarks
 	$.getJSON(apiRoot + "my_bookmarks/"+userID+"/",function(data){
 		console.log("Loaded my bookmarks:",data);
+		bookmarksData = data;
 		$(data).each(function(i,item){
 			var id = item.fields.item.pk;
 			var name = item.fields.item.fields.name;
 			var description = item.fields.item.fields.description;
-			$("#bookmarkedList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></li>");
+			$("#bookmarkedList").append("<li><a href='#detailPage?type=bookmark&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
 		});
 		
 		$("#bookmarkedList").listview('refresh');
@@ -107,13 +110,14 @@ $( document ).delegate("#myFoodPage", "pageinit", function() {
 	// Load reviews
 	$.getJSON(apiRoot + "my_reviews/"+userID+"/",function(data){
 		console.log("Loaded my reviews:",data);
+		reviewsData = data;
 		$(data).each(function(i,item){
 			var id = item.fields.item.pk;
 			var name = item.fields.item.fields.name;
 			var description = item.fields.item.fields.description;
 			var comment = item.fields.comment;
 			var location = item.fields.location;
-			$("#reviewedList").append("<li><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>Sighted at: "+location+"</p><p>Your comment: "+comment+"</p></li>");
+			$("#reviewedList").append("<li><a href='#detailPage?type=reviews&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>Sighted at: "+location+"</p><p>Your comment: "+comment+"</p></li>");
 		});
 		
 		$("#reviewedList").listview('refresh');
@@ -130,7 +134,7 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 			var id = item.pk;
 			var name = item.fields.name;
 			var description = item.fields.description;
-			$("#searchList").append("<li><a href='#detailPage?i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
+			$("#searchList").append("<li><a href='#detailPage?type=search&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
 		});
 		
 		$("#searchList").listview('refresh');
@@ -139,8 +143,22 @@ $( document ).delegate("#searchPage", "pageinit", function() {
 
 $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 	console.log('detailPage pagebeforeshow',e,data);
-	var itemI = $(e.target).attr("data-url").replace(/.*i=/, "");
-	var item = searchData[itemI];
+	
+	var url = $(e.target).attr("data-url");
+	// http://xkcd.com/208/
+	var type = url.replace(/.*type=/, "").replace(/&i=.*/,"");
+	var itemI = url.replace(/.*i=/, "");
+	console.log(url,"type:",type,"i:",itemI);
+	
+	var item;
+	if(type=="search"){
+		item = searchData[itemI];
+	} else if (type="bookmark"){
+		item = bookmarksData[itemI].fields.item;
+	} else if (type="reviews"){
+		item = reviewsData[itemI].fields.item;
+	}
+	
 	$("#itemDetailImg").attr("src","mockup_assets/"+item.pk+".jpg");
 	showDetails(item,$("#itemDetails"));
 });
