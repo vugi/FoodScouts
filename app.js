@@ -14,6 +14,8 @@ $(document).ready(function(){
 	$(".review").click(function(){
 		$.mobile.changePage("#ratingPage", {role: 'dialog'});
 	});
+	
+	initRatingStars();
 })
 
 $( document ).delegate("#explorePage", "pageinit", function() {
@@ -170,6 +172,9 @@ $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 $( document ).delegate("#ratingPage", "pageinit", function() {
 	console.log('ratingPage pageinit');
 	
+});
+
+function initRatingStars(){
 	$(".ratingStars .star").click(function(e){
 		var $target = $(e.target);
 		
@@ -182,5 +187,4 @@ $( document ).delegate("#ratingPage", "pageinit", function() {
 		// Mark the ones before this selected as well
 		$target.prevUntil().addClass("selected");
 	});
-	
-});
+}
