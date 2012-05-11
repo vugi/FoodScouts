@@ -132,6 +132,11 @@ a[href="#searchPage"] .ui-icon {
 	margin-left: 5px;
 }
 
+.details .comments .location {
+	font-size: 0.9em;
+	color: gray;
+}
+
 .details span.user {
 	font-weight: bold;
 }

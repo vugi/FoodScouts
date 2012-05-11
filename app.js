@@ -78,6 +78,7 @@ function showDetails(item,$element){
 			}
 			html += "<span class='user'>"+user + "</span> <span class='date'>" + $.timeago(date) +"</span>";
 			html += "<p>"+comment+"</p>";
+			html += "<p class='location'>"+location+"</p>";
 			html += "</div>";
 			$element.find(".comments").append(html)
 		});
