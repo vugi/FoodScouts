@@ -169,9 +169,9 @@ $( document ).delegate("#detailPage", "pagebeforeshow", function(e,data) {
 	var item;
 	if(type=="search"){
 		item = searchData[itemI];
-	} else if (type="bookmark"){
+	} else if (type=="bookmark"){
 		item = bookmarksData[itemI].fields.item;
-	} else if (type="reviews"){
+	} else if (type=="reviews"){
 		item = reviewsData[itemI].fields.item;
 	}
 	
