@@ -18,7 +18,7 @@ $(document).ready(function(){
 	
 	initRatingStars();
 	
-	$(".bookmarkStar").click(addBookmark);
+	$(".bookmarkStar").click(toggleBookmark);
 })
 
 $( document ).delegate("#explorePage", "pageinit", function() {
@@ -50,6 +50,15 @@ function showDetails(item,$element){
 	
 	$element.find(".title").text(item.fields.name);
 	$element.find(".description").text(item.fields.description);
+	
+	// Update bookmark button
+	var $star = $element.find(".bookmarkStar");
+	var index = getBookmarksIndex(currentDetailItem);
+	if(index > -1){
+		$star.addClass("selected");
+	} else {
+		$star.removeClass("selected");
+	}
 	
 	// Clear old comments
 	$element.find(".comments").html("");
@@ -190,7 +199,7 @@ function initRatingStars(){
 	});
 }
 
-function addBookmark(){
+function toggleBookmark(){
 	currentDetailItem;
 	console.log(this,currentDetailItem);
 	
@@ -199,14 +208,32 @@ function addBookmark(){
 			item: currentDetailItem
 		}
 	};
-	// Add as first item to bookmarksData
-	bookmarksData.splice(0,0,bookMarkItem);
 	
-	console.log("Added new bookMarkItem:",bookMarkItem);
+	// Search for existing bookmark
+	var index = getBookmarksIndex(currentDetailItem);
+	
+	if(index === -1){
+		// Add as first item to bookmarksData
+		bookmarksData.splice(0,0,bookMarkItem);
+		$(this).addClass("selected");
+		console.log("Added new bookMarkItem:",bookMarkItem);
+	} else {
+		// Remove item
+		bookmarksData.splice(index,1);
+		$(this).removeClass("selected");
+		console.log("Removed bookMarkItem:",bookMarkItem);
+	}
 
 	updateBookmarks();
-	
-	$(this).toggleClass("selected");
+}
+
+function getBookmarksIndex(detailItem){
+	for(var i=0;i<bookmarksData.length;i++){
+		if(bookmarksData[i].fields.item.pk == detailItem.pk){
+			return i;
+		}
+	}
+	return -1;
 }
 
 function updateBookmarks(){
