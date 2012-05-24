@@ -18,9 +18,7 @@ $(document).ready(function(){
 	
 	initRatingStars();
 	
-	$(".bookmarkStar").click(function(e){
-		addBookmark();
-	});
+	$(".bookmarkStar").click(addBookmark);
 })
 
 $( document ).delegate("#explorePage", "pageinit", function() {
@@ -192,18 +190,21 @@ function initRatingStars(){
 }
 
 function addBookmark(){
-	console.log(currentDetailItem);
+	var item = currentDetailItem;
+	console.log(this,item);
+	
 	var bookMarkItem = {
 		fields: {
 			item: currentDetailItem
 		}
 	};
-	//bookMarkItem.fields.item = currentDetailItem;
+	// Add as first item to bookmarksData
 	bookmarksData.splice(0,0,bookMarkItem);
 	
-	console.log(bookMarkItem);
-	//bookmarksData
+	console.log("Added new bookMarkItem:",bookMarkItem);
 	updateBookmarks();
+	
+	$(this).toggleClass("selected");
 }
 
 function updateBookmarks(){
