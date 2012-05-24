@@ -108,23 +108,17 @@ function showDetails(item,$element){
 $( document ).delegate("#myFoodPage", "pageinit", function() {
 	console.log('myFoodPage pageinit');
 	
-	// Load bookmarks
+	// Load bookmarked products
 	$.getJSON(apiRoot + "my_bookmarks/"+userID+"/",function(data){
 		console.log("Loaded my bookmarks:",data);
 		bookmarksData = data;
-		$(data).each(function(i,item){
-			var id = item.fields.item.pk;
-			var name = item.fields.item.fields.name;
-			var description = item.fields.item.fields.description;
-			$("#bookmarkedList").append("<li><a href='#detailPage?type=bookmark&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
-		});
-		
-		$("#bookmarkedList").listview('refresh');
+		updateBookmarks();
 	});
-	// Load reviews
+	// Load reviewed products
 	$.getJSON(apiRoot + "my_reviews/"+userID+"/",function(data){
 		console.log("Loaded my reviews:",data);
 		reviewsData = data;
+		$("#reviewedList").html('<li data-role="list-divider" role="heading">Reviewed</li>');
 		$(data).each(function(i,item){
 			var id = item.fields.item.pk;
 			var name = item.fields.item.fields.name;
@@ -213,7 +207,7 @@ function addBookmark(){
 }
 
 function updateBookmarks(){
-	$("#bookmarkedList").empty();
+	$("#bookmarkedList").html('<li data-role="list-divider" role="heading">Bookmarked</li>');
 	
 	$(bookmarksData).each(function(i,item){
 		var id = item.fields.item.pk;
