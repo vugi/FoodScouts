@@ -109,7 +109,8 @@ $( document ).delegate("#myFoodPage", "pageinit", function() {
 	// Load bookmarked products
 	$.getJSON(apiRoot + "my_bookmarks/"+userID+"/",function(data){
 		console.log("Loaded my bookmarks:",data);
-		bookmarksData = data;
+		// Merge arrays so that locally added bookmarks will be kept as well
+		$.merge(bookmarksData,data);
 		updateBookmarks();
 	});
 	// Load reviewed products
@@ -190,8 +191,8 @@ function initRatingStars(){
 }
 
 function addBookmark(){
-	var item = currentDetailItem;
-	console.log(this,item);
+	currentDetailItem;
+	console.log(this,currentDetailItem);
 	
 	var bookMarkItem = {
 		fields: {
@@ -202,6 +203,7 @@ function addBookmark(){
 	bookmarksData.splice(0,0,bookMarkItem);
 	
 	console.log("Added new bookMarkItem:",bookMarkItem);
+
 	updateBookmarks();
 	
 	$(this).toggleClass("selected");
@@ -217,5 +219,7 @@ function updateBookmarks(){
 		$("#bookmarkedList").append("<li><a href='#detailPage?type=bookmark&i="+i+"' data-rel='dialog'><img src='mockup_assets/"+id+".jpg' /><h4>"+name+"</h4><p>"+description+"</p></a></li>");
 	});
 	
-	$("#bookmarkedList").listview('refresh');
+	if ($("#bookmarkedList").hasClass('ui-listview')) {
+		$("#bookmarkedList").listview('refresh');
+	}
 }
